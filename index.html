@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاسبه محیط و مساحت مستطیل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>محاسبه محیط و مساحت مستطیل</h1>
+        <label for="length">طول را وارد کنید:</label>
+        <input type="number" id="length" placeholder="طول">
+
+        <label for="width">عرض را وارد کنید:</label>
+        <input type="number" id="width" placeholder="عرض">
+
+        <button onclick="calculate()">محاسبه</button>
+
+        <div class="result">
+            <p id="area"></p>
+            <p id="perimeter"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+
+            if (isNaN(length) || isNaN(width)) {
+                alert("لطفاً مقادیر معتبر وارد کنید.");
+                return;
+            }
+
+            const perimeter = (length + width) * 2;
+            const area = length * width;
+
+            document.getElementById('area').innerText = "مساحت: " + area;
+            document.getElementById('perimeter').innerText = "محیط: " + perimeter;
+        }
+    </script>
+</body>
+</html>
